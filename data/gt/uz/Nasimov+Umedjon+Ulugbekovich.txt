@@ -1,0 +1,222 @@
+KIBER JINOYATLAR MUAMMO, TAHLIL VA YECHIMLAR
+Nasimov Umedjon Ulugbekovich
+Toshkend Davlat Yuridik Unuversiteti
+Annotatsiya: Maqolada kiberjinoyatlarning mohiyati, shakllari va ularning
+zamonaviy jamiyatga ta’siri ilmiy jihatdan tahlil qilinadi. Shuningdek, O‘zbekistonda va
+jahon miqyosida kiberjinoyatlarga qarshi kurashish choralari, axborot xavfsizligini
+ta’minlash mexanizmlari va aholining axborot savodxonligini oshirish masalalari
+yoritiladi.
+Kalit so‘zlar: kiberjinoyatlarga, axborot, birga, shaxsiy, texnologiyalarining,
+jinoyatlardan.
+Kirish: So‘nggi yillarda axborot-kommunikatsiya texnologiyalarining jadal
+rivojlanishi insoniyat hayotida katta yutuqlarni yuzaga chiqardi. Internet global tarmog‘i
+ta’lim, fan, iqtisodiyot, tibbiyot va boshqa sohalarda keng qo‘llanilmoqda. Ammo
+texnologik taraqqiyot bilan birga, turli salbiy oqibatlar ham yuzaga chiqmoqda. Ularning
+eng xavflilaridan biri bu — kiberjinoyatlardir.
+Kiberjinoyatlar shaxsiy, korporativ va davlat miqyosida zarar yetkazib, iqtisodiy
+yo‘qotishlar, axborot xavfsizligining buzilishi hamda milliy xavfsizlikka tahdid tug‘dirishi
+mumkin. Shu bois kiberjinoyatlarga qarshi samarali kurashish masalasi bugungi kunda
+nafaqat alohida davlatlar, balki butun jahon hamjamiyati uchun dolzarb hisoblanadi.
+1-bob. Kiberjinoyat tushunchasi va uning huquqiy asoslari
+1.1. Kiberjinoyat tushunchasi
+Kiberjinoyat — bu kompyuter texnologiyalari yoki internet tarmog‘i vositasida sodir
+etiladigan, axborot resurslariga zarar yetkazishga qaratilgan noqonuniy harakatdir.
+Kiberjinoyatlarning asosiy belgisi — ularning virtual muhitda amalga oshirilishi va
+an’anaviy jinoyatlardan farqli ravishda tezkor, keng ko‘lamli ta’sir ko‘rsatish qobiliyatidir.
+1.2. Huquqiy asoslar
+O‘zbekiston Respublikasida kiberjinoyatlarga qarshi kurashish Jinoyat kodeksi,
+“Axborotlashtirish to‘g‘risida”gi Qonun, “Elektron hukumat to‘g‘risida”gi Qonun,
+“Shaxsiy ma’lumotlar to‘g‘risida”gi Qonun va boshqa normativ-huquqiy hujjatlar bilan
+tartibga solinadi.
+2-bob. Kiberjinoyatlarning turlari
+Kiberjinoyatlar ko‘plab ko‘rinishlarda sodir etiladi. Ularning asosiy turlari
+quyidagilardan iborat:
+•
+Kibero‘g‘rilik — bank kartalaridan pul o‘g‘irlash, moliyaviy ma’lumotlarni
+noqonuniy egallash.
+•
+Kompyuter firibgarligi — soxta saytlar, yolg‘on elektron xatlar orqali
+foydalanuvchini aldash.
+Ma’lumotlarni buzish va yo‘q qilish — serverlarga zarar yetkazish, maxfiy
+•
+fayllarni yo‘q qilish.
+Kiberterrorizm — davlat muassasalari va strategik obyektlarga qarshi
+•
+hujumlar.
+•
+Shaxsiy daxlsizlikni buzish — odamlarning fotosuratlari, videolari yoki
+shaxsiy yozishmalarini noqonuniy tarqatish.
+•
+Spam va fishing — turli reklama, yolg‘on havolalar orqali firibgarlik qilish.
+•
+Zararli dasturlar tarqatish — virus, trojan, ransomware kabi dasturlar
+yordamida zarar yetkazish.
+3-bob. Kiberjinoyatlarning oqibatlari
+3.1. Shaxsiy darajadagi oqibatlar
+•
+Shaxsiy ma’lumotlarning o‘g‘irlanishi;
+Moliyaviy zarar;
+•
+•
+Ruhiy tushkunlik, qo‘rquv va psixologik bosim.
+3.2. Jamiyat va iqtisodiyotga ta’siri
+Bank tizimida katta moliyaviy yo‘qotishlar;
+•
+Korporativ sirlarning oshkor qilinishi;
+•
+•
+Iqtisodiy ishonchning pasayishi.
+3.3. Davlat va milliy xavfsizlikka ta’siri
+Strategik axborot tizimlariga hujum qilish;
+•
+•
+Davlat boshqaruvini izdan chiqarish xavfi;
+•
+Axborot urushlari va geosiyosiy bosim vositasi sifatida foydalanish.
+4-bob. Kiberjinoyatlarga qarshi kurash
+4.1. Xalqaro tajriba
+Birlashgan Millatlar Tashkiloti, Yevropa Ittifoqi, Interpol va boshqa xalqaro
+tashkilotlar kiberjinoyatlarga qarshi umumiy standartlar ishlab chiqmoqda. Masalan,
+Budapesht konvensiyasi xalqaro miqyosda kiberjinoyatlarga qarshi kurashishning asosiy
+hujjatlaridan biridir.
+4.2. O‘zbekistondagi holat
+O‘zbekistonda so‘nggi yillarda axborot xavfsizligini ta’minlash bo‘yicha keng
+ko‘lamli ishlar olib borilmoqda. Milliy gvardiya va Ichki ishlar vazirligi huzurida maxsus
+kiberxavfsizlik bo‘linmalari faoliyat yuritmoqda. Universitet va maktablarda esa axborot
+madaniyati bo‘yicha o‘quv kurslari tashkil etilmoqda.
+4.3. Fuqarolarning roli
+Har bir fuqaro o‘zining shaxsiy ma’lumotlarini himoya qilish, ishonchsiz sayt va
+havolalardan foydalanmaslik, murakkab parollardan foydalanish va muntazam ravishda
+xavfsizlik dasturlarini yangilab turishi kerak.
+5-bob. Kiberxavfsizlikni ta’minlashning istiqbollari
+•
+Sun’iy intellekt yordamida kiberjinoyatlarni erta aniqlash;
+Kiberxavfsizlik bo‘yicha milliy va xalqaro hamkorlikni kuchaytirish;
+•
+•
+Yoshlar orasida internet madaniyatini oshirish;
+•
+Maxsus qonunlarni yanada takomillashtirish.
+Kiberjinoyatlar nafaqat individual foydalanuvchilarga, balki biznes va davlat
+muassasalariga ham katta zarar yetkazadi. Ular iqtisodiy yo‘qotishlar, shaxsiy
+ma’lumotlarning oshkor bo‘lishi, jamoat xavfsizligiga tahdid solishi mumkin. Ushbu
+jinoyatlar turli darajalarda jamiyatga salbiy ta’sir ko‘rsatadi:
+Iqtisodiy yo‘qotishlar – kompaniyalar va davlat muassasalari kiberjinoyatlar tufayli
+katta moliyaviy zarar ko‘rishi mumkin. Firibgarlik, tovlamachilik va ma’lumotlar
+o‘g‘irlanishi natijasida yirik korporatsiyalar milliardlab dollar yo‘qotadi.
+Shaxsiy
+ma’lumotlarning
+oshkor
+bo‘lishi
+–
+kiberjinoyatlar
+natijasida
+foydalanuvchilarning shaxsiy va moliyaviy ma’lumotlari firibgarlar qo‘liga tushishi
+mumkin, bu esa kredit firibgarligi va shaxsiy hayotga tahdid tug‘diradi.
+Ijtimoiy
+ishonchsizlikning
+ortishi
+–
+internetdagi
+firibgarlik
+va
+soxta
+ma’lumotlarning ko‘payishi jamiyatda ishonchsizlikni oshiradi, bu esa odamlarning onlayn
+xizmatlarga nisbatan shubha bilan qarashiga sabab bo‘ladi.
+Kiberurush xavfi – davlatlar o‘rtasida kiberjosuslik va kiberhujumlar tobora
+kuchayib bormoqda. Bu esa milliy xavfsizlikka jiddiy tahdid solishi va xalqaro
+munosabatlarga salbiy ta’sir ko‘rsatishi mumkin.
+Ishonchli tizimlarning izdan chiqishi – bank tizimlari, davlat xizmatlari va yirik
+korporativ tarmoqlarga qilingan hujumlar butun jamiyat faoliyatini izdan chiqarishi
+mumkin.
+Ish o‘rinlarining yo‘qolishi – kiberjinoyatlar tufayli kompaniyalar katta zarar
+ko‘rib, ishchilarni qisqartirishga majbur bo‘lishi mumkin.
+Psixologik va huquqiy oqibatlar – kiberjinoyat qurbonlari depressiya, stress va
+boshqa psixologik muammolarga duch kelishadi. Bundan tashqari, huquqiy jarayonlarning
+murakkabligi jinoyatchilarga qarshi kurashda qo‘shimcha qiyinchiliklar tug‘diradi.
+Kiberjinoyatlar tufayli xalqaro darajadagi muammolar ham yuzaga kelmoqda,
+masalan, kiberurush va transchegaraviy hujumlar. Shu sababli, bu muammolarga qarshi
+global hamkorlik va ilg‘or texnologik himoya choralari talab etiladi.
+Kiberjinoyat qurboni bo‘lish har qanday foydalanuvchi uchun og‘ir holat bo‘lishi
+mumkin. Agar siz kiberjinoyat nishoniga aylangan bo‘lsangiz, quyidagi choralarni ko‘rish
+muhim:
+1. Parollarni darhol o‘zgartirish – hujumga uchragan akkaunt va unga bog‘liq
+boshqa xizmatlarning parollarini o‘zgartirish zarur. Parollar murakkab va unikal bo‘lishi
+lozim.
+2. Bank kartalarini bloklash va moliyaviy muassasaga xabar berish – agar
+firibgarlar moliyaviy ma’lumotlaringizni qo‘lga kiritgan bo‘lsa, bank bilan bog‘lanib,
+kartalarni vaqtincha bloklash tavsiya etiladi.
+3.
+Qurilmalarda
+antivirus
+tekshiruvini
+o‘tkazish
+–
+kompyuter
+yoki
+smartfoningizda antivirus dasturi orqali to‘liq tekshiruv o‘tkazing va zararli dasturlarni
+o‘chiring.
+4. Huquq-tartibot organlariga murojaat qilish – kiberjinoyat bo‘yicha tegishli
+huquq-tartibot organlariga xabar bering va dalillarni taqdim eting.
+5. Shubhali akkauntlarni tiklash va zararli dasturlarni o‘chirish – hujumga
+uchragan ijtimoiy tarmoqlar, elektron pochta va boshqa akkauntlarni tiklash uchun rasmiy
+yordam xizmatlariga murojaat qiling.
+6. Kiberjinoyatchilarning keyingi hujumlaridan saqlanish – kelgusida fishing
+xabarlariga aldanmaslik, shubhali havolalardan ehtiyot bo‘lish va xavfsizlik choralarini
+kuchaytirish muhim.
+7. Zaxira nusxalarni tiklash – agar ma’lumotlaringiz o‘chirib yuborilgan yoki
+shifrlangan bo‘lsa, oldindan yaratilgan zaxira nusxalarni qayta tiklash orqali
+yo‘qotishlarning oldini olish mumkin.
+8. Tegishli platformalarga xabar berish – agar kiberjinoyat ijtimoiy tarmoq yoki
+boshqa onlayn xizmatlar orqali sodir etilgan bo‘lsa, platforma ma’muriyatiga bu haqida
+xabar bering va akkauntingizni himoya qilish choralari ko‘ring.
+Kiberjinoyatlarga qarshi samarali kurashish uchun doimiy hushyorlik talab etiladi.
+O‘z ma’lumotlaringiz va moliyaviy resurslaringizni himoya qilish uchun xavfsizlik
+choralariga rioya qilish muhimdir.
+Xulosa qilib aytganda Kiberjinoyatlar zamonaviy dunyoning eng muhim
+muammolaridan biri bo‘lib, ulardan himoyalanish har bir inson va tashkilot uchun dolzarb
+vazifadir. Kuchli parollar ishlatish, ikki bosqichli autentifikatsiya, antivirus dasturlaridan
+foydalanish kabi choralarga rioya qilish orqali xavfsizlikni ta’minlash mumkin.
+Kiberjinoyatlarga qarshi kurash faqat texnologik himoya bilan cheklanmay, balki
+foydalanuvchilarning ongli va ehtiyotkor bo‘lishini ham talab etadi.
+Texnologik rivojlanish bilan birga, kiberjinoyatlar ham takomillashmoqda, shuning
+uchun himoya choralari doimiy ravishda yangilanib borishi lozim.
+Bundan
+tashqari,
+kiberxavfsizlik
+sohasi
+bo‘yicha
+bilimlarni
+oshirish,
+foydalanuvchilarning xabardorligini kuchaytirish va maxsus treninglar o‘tkazish
+kiberjinoyatlarga qarshi samarali kurashishning muhim omillaridan biridir. Har bir inson
+internetdan foydalanganda ehtiyotkorlik bilan harakat qilishi, shubhali havolalardan
+saqlanishi va shaxsiy ma’lumotlarini himoya qilishi zarur.
+Kelajakda texnologik taraqqiyot bilan birga kiberjinoyatlar ham yanada rivojlanishi
+mumkin, shuning uchun har bir inson va tashkilot o‘z xavfsizligini ta’minlashga doimiy
+ravishda e’tibor qaratishi lozim. Kiberjinoyatlar bilan samarali kurashish uchun ham
+texnologik, ham huquqiy jihatdan harakat qilish zarur bo‘lib, har bir foydalanuvchi
+o‘zining axborot xavfsizligiga mas’uliyat bilan yondashishi lozim. Kelajakda texnologik
+taraqqiyot bilan birga kiberjinoyatlar ham rivojlanishi mumkin, shuning uchun har bir
+inson va tashkilot o‘z xavfsizligini ta’minlashga doimiy ravishda e’tibor qaratishi lozim.
+Hukumatlar, xususiy sektor va xalqaro hamkorlik kiberjinoyatlarga qarshi kurashishning
+muhim omillaridir. Har bir foydalanuvchi o‘zining axborot xavfsizligiga mas’uliyat bilan
+yondashishi lozim.
+Xulosa:
+Kiberjinoyatlar zamonaviy jamiyat uchun jiddiy muammolardan biridir. Ularning
+oldini olish uchun davlat, jamiyat va shaxs darajasida kompleks yondashuv zarur.
+Qonunchilikni kuchaytirish, xalqaro hamkorlikni rivojlantirish va fuqarolarning axborot
+savodxonligini oshirish orqali kiberjinoyatlarga qarshi samarali kurashish mumkin.
+FOYDALANILGAN ADABIYOTLAR:
+1.
+O‘zbekiston Respublikasi Jinoyat kodeksi.
+2.
+“Axborotlashtirish to‘g‘risida”gi Qonun.
+3.
+“Shaxsiy ma’lumotlar to‘g‘risida”gi Qonun.
+4.
+Budapesht konvensiyasi (2001).
+5.
+Interpol hisobotlari va xalqaro kiberxavfsizlik tadqiqotlari.
+6.
+Zamonaviy axborot texnologiyalari bo‘yicha ilmiy maqolalar.

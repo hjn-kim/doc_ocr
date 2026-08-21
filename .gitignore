@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# data/ 와 result/ 는 일부러 커밋한다.
+# GPU 서버에서 clone 해서 바로 돌리고, 나온 result.csv 를 다시 받아와야 하기 때문이다.
