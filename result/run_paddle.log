@@ -1,0 +1,11 @@
+PDF 45개, 정답 45개, 정규화=basic, 엔진=paddleocr_vl
+
+=== paddleocr_vl (device=gpu:0) - 문서 45개 ===
+!! paddleocr_vl 엔진을 건너뛴다 - ImportError: /home/hjkim/miniconda3/envs/ocr-paddle/lib/python3.11/site-packages/torch/lib/libtorch_cuda.so: undefined symbol: ncclCommResume
+   설치: pip install paddlepaddle-gpu==3.2.1 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/ 뒤에 pip install -U paddleocr[doc-parser]>=3.6.0
+
+요약할 결과가 없다.
+
+문서별: /home/hjkim/doc_ocr/result/result.csv
+요약  : /home/hjkim/doc_ocr/result/result_summary.csv
+예측  : /home/hjkim/doc_ocr/result/pred

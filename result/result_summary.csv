@@ -1,0 +1,9 @@
+﻿engine,group,device,n_docs,n_scored,n_pages,exact_match,cer_micro,cer_macro,wer_micro,wer_macro,total_seconds,sec_per_page,n_failed,normalize
+paddleocr_vl,ALL,gpu:0,45,45,148,0.0,0.106335,0.160252,0.156009,0.254948,2784.28,18.813,0,basic
+paddleocr_vl,ch,gpu:0,5,5,6,0.0,0.438347,0.600165,0.903371,0.952644,10.7,1.783,0,basic
+paddleocr_vl,en,gpu:0,10,10,23,0.0,0.054238,0.056661,0.107967,0.107228,255.02,11.088,0,basic
+paddleocr_vl,ko,gpu:0,10,10,52,0.0,0.15591,0.144551,0.256762,0.250696,1011.21,19.446,0,basic
+paddleocr_vl,pil,gpu:0,5,5,10,0.0,0.04801,0.034137,0.061902,0.052862,152.57,15.257,0,basic
+paddleocr_vl,ru,gpu:0,5,5,11,0.0,0.383177,0.336583,0.431388,0.385207,169.86,15.442,0,basic
+paddleocr_vl,uz,gpu:0,5,5,19,0.0,0.042266,0.042815,0.140919,0.139416,476.37,25.072,0,basic
+paddleocr_vl,vn,gpu:0,5,5,27,0.0,0.02562,0.026143,0.047013,0.048554,708.56,26.243,0,basic
