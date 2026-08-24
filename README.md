@@ -56,8 +56,8 @@ python src/make_gt.py               # data/gt/ 에 초안 저장
 ```bash
 pip install -r requirements.txt
 
-# tesseract 본체 (pytesseract 는 껍데기다)
-sudo apt-get install -y tesseract-ocr tesseract-ocr-kor tesseract-ocr-eng
+# tesseract 본체 (pytesseract 는 껍데기다). 언어별 traineddata 를 따로 깐다
+sudo apt-get install -y tesseract-ocr tesseract-ocr-{kor,eng,chi-sim,rus,vie,uzb,tgl}
 
 # PaddleOCR-VL 1.6 — CUDA 버전을 타므로 requirements 에 안 넣었다
 pip install paddlepaddle-gpu==3.2.1 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
@@ -66,6 +66,24 @@ pip install -U "paddleocr[doc-parser]>=3.6.0"
 
 윈도우에서 tesseract 를 쓸 때는 설치 경로를 알려준다.
 `--tesseract-cmd "C:/Program Files/Tesseract-OCR/tesseract.exe"`
+
+### sudo 가 없을 때
+
+traineddata 는 그냥 파일이라 홈 디렉터리에 받아두고 경로만 알려주면 된다.
+
+```bash
+bash scripts/fetch_tessdata.sh                  # ~/tessdata 에 7개 언어를 받는다
+python src/run_benchmark.py --device gpu:0   --tesseract-config "--oem 3 --psm 3 --tessdata-dir $HOME/tessdata"
+```
+
+tesseract 본체까지 없으면 conda 로 깐다 (역시 sudo 가 필요 없다).
+
+```bash
+conda install -y -c conda-forge tesseract
+```
+
+conda 도 못 쓰면 tesseract 를 빼고 두 엔진만 돌린다.
+`--engines paddleocr_vl easyocr`
 
 ## 4. 지표
 

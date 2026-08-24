@@ -1,0 +1,166 @@
+Case 6:25-mj-00015-HBK     Document 12     Filed 01/21/26     Page 1 of 3
+1
+2
+3
+4
+5
+6
+7
+8
+UNITED STATES DISTRICT COURT
+9
+FOR THE EASTERN DISTRICT OF CALIFORNIA
+10
+11
+UNITED STATES OF AMERICA,
+Case No.   6:25-mj-00015-HBK-1
+12
+Plaintiff,
+ORDER DENYING DEFENDANT’S
+MOTION TO DISMISS COMPLAINT
+13
+v.
+(Doc. 9)
+14
+JOHN ANTHONY O’BRIEN,
+15
+Defendant.
+16
+17
+Before the court is defendant John Anthony O’Brien’s motion to dismiss complaint.
+18
+(Doc. 9).  The government filed an opposition and defendant filed a reply.  (Docs. 10, 11).  As
+19
+more fully set forth herein, the court concludes the complaint sufficiently alleges a violation of 36
+20
+C.F.R. §2.35(c) and denies defendant’s motion.
+21
+I. BACKGROUND
+22
+Defendant was arrested on April 28, 2025 and charged by criminal complaint with a
+23
+violation of 36 C.F.R. §2.35(c): presence in the park when under the influence of alcohol or a
+24
+controlled substance to a degree that may endanger oneself, or another person, or damage
+25
+property or park resources.  (Doc. 1).  Defendant seeks dismissal of the complaint pursuant to
+26
+Federal Rule of Criminal Procedure 12(b) “on the ground that the conduct alleged in the
+27
+complaint falls outside the scope of the statue.”  Id. at 1.
+28
+////
+1
+Case 6:25-mj-00015-HBK     Document 12     Filed 01/21/26     Page 2 of 3
+1
+II. APPLICABLE LAW
+2
+A pretrial motion to dismiss seeks dismissal on a question of law.  See United States v.
+3
+Schulman, 817 F.2d 1355, 1358 (9th Cir. 1987).  In ruling on such a motion, “the district court is
+4
+bound by the four corners of the indictment.”  United States v. Lyle, 742 F.3d 434, 436 (9th Cir.
+5
+2014); United States v. Boren, 278 F.3d 911, 914 (9th Cir. 2002) (“On a motion to dismiss an
+6
+indictment for failure to state an offense the court must accept the truth of the allegations in the
+7
+indictment in analyzing whether a cognizable offense has been charged.”).  The court asks only
+8
+whether a crime has been alleged.  United States v. Milovanovic, 678 F.3d 713, 717 (9th Cir.
+9
+2012).  Rule 12 motions cannot be used to determine “general issues of guilt or innocence.”
+10
+Boren, 278 F.3d at 914 (citation omitted).
+11
+Supra, defendant was charged with a violating 36 C.F.R. § 2.35(c).  The essential
+12
+elements of the regulation require defendant’s presence within Yosemite National Park, in a state
+13
+of intoxication, and in a position of vulnerability to danger.  See United States v. Regan, 93 F.
+14
+Supp. 2d 82, 86 (D. Mass. 2000).
+15
+III. ANALYSIS
+16
+The following facts are alleged in the affidavit in support of the complaint.  At 7:30 p.m.,
+17
+dispatch radioed emergency medical services regarding an “unresponsive male in the back of a
+18
+Yosemite Shuttle Bus.”  (Doc. 1, ¶ 6).  Defendant was “passed out” on the bus “for approximately
+19
+and hour and a half.”  (Id. at 6).  The first officer to arrive found defendant “slumped” on the bus
+20
+seat.  (Id.).  Defendant responded after he was “shook . . by the shoulder.”  (Id.).  Defendant
+21
+“smelled heavily of acholic beverages” and, when defendant was questioned about how much he
+22
+had to drink, he responded, “quite a bit.”  (Id., ¶ 7).  Although Defendant complied with the
+23
+ranger’s requests, he was “slow to respond.”  (Id.).  When standing, Defendant was “shaky and
+24
+unsteady,” and rangers had to place him in an “escort hold” to “keep him on his feet” and get him
+25
+to the door because he was “swaying” and “walking with an inconsistent gait.”  (Id., ¶ 8).  Once
+26
+off the bus, rangers had to “assist” defendant and “lean” him “against the push bumper” of the
+27
+patrol vehicle.  (Id., ¶ 9).  When questioned again about how much is “quite a bit,” defendant
+28
+responded, “he was just trying to get to the employee pub.”  (Id.).  When asked where his dorm
+2
+Case 6:25-mj-00015-HBK     Document 12     Filed 01/21/26     Page 3 of 3
+1
+was, defendant again stated he intended to go to the Denegan’s Kitchen, which houses the
+2
+employee pub.  (Id.).
+3
+Swaying, walking unsteadily, and smelling of alcohol are suggestive of excessive alcohol
+4
+consumption.  Being "passed out" indicates a level of intoxication where the person cannot care
+5
+for their own safety, and being “unresponsive” on public transport (such as a park shuttle) can
+6
+constitute a safety risk to oneself, other passengers, and the operation of the vehicle.  For
+7
+instance, an individual who is “passed out” on a bus is vulnerable to crime and susceptible to
+8
+injury if the bus must swerve or make an abrupt stop.
+9
+The complaint therefore sufficiently alleges the essential elements of 36 C.F.R. §2.35(c)
+10
+and thus cannot be dismissed.  The cases cited by defendant, United States v. Nyemaster, 116
+11
+F.3d 827, 829 (9th Cir. 1997) and U.S. v. Hogue, 752 F.2d 1503 (9th Cir.1985), are
+12
+distinguishable.  The issue before the Ninth Circuit in each case was whether the evidence was
+13
+sufficient to support the finding of guilt after trial.  At a Rule 12(b) stage, the question before the
+14
+court is not one of plaintiff’s guilt or innocence, but instead a question of whether the complaint
+15
+outlines the elements and alleges sufficient facts for this court to find probable cause that
+16
+defendant has committed the charged offense.  Fed. R. Crim. P. 3.  Whether defendant is guilty of
+17
+the charged offense is a question of fact reserved for trial and is not proper in a pretrial motion.
+18
+Accordingly, it is ORDERED:
+19
+1.
+Defendant’s motion to dismiss complaint (Doc. No. 9) is DENIED.
+20
+2.
+The court sets this case for a status conference on March 10, 2026 at 10:00 A.M.
+21
+22
+Dated:     January 20, 2026
+23
+HELENA M. BARCH-KUCHTA
+UNITED STATES MAGISTRATE JUDGE
+24
+25
+26
+27
+28
+3

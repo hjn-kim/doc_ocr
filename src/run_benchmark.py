@@ -40,8 +40,10 @@ INSTALL_HINT = {
     'paddleocr_vl': ('pip install paddlepaddle-gpu==3.2.1 -i '
                      'https://www.paddlepaddle.org.cn/packages/stable/cu126/ 뒤에 '
                      'pip install -U paddleocr[doc-parser]>=3.6.0'),
-    'tesseract': ('pip install pytesseract 와 '
-                  'apt-get install -y tesseract-ocr tesseract-ocr-kor tesseract-ocr-eng'),
+    'tesseract': ('pip install pytesseract 와 본체 설치. sudo 가 있으면 '
+                  'apt-get install -y tesseract-ocr tesseract-ocr-kor, 없으면 '
+                  'conda install -y -c conda-forge tesseract 뒤에 '
+                  'bash scripts/fetch_tessdata.sh'),
     'easyocr': 'pip install easyocr',
 }
 
@@ -183,7 +185,7 @@ def run_engine(name: str, samples, args, writer, csv_file) -> list[dict]:
     strip_md = not args.keep_markdown
     lang_table = languages.load_map(args.lang_map)
 
-    records = []
+    records, shown_trace = [], False
     print(f"\n=== {name} (device={device}) - 문서 {len(samples)}개 ===", flush=True)
     if not args.metrics_only:
         # 여기서 미리 올린다. 모델 로딩 시간이 첫 문서의 OCR 시간에 섞이지 않고,
@@ -213,6 +215,11 @@ def run_engine(name: str, samples, args, writer, csv_file) -> list[dict]:
                 needs_images = not (name == "paddleocr_vl"
                                     and args.paddle_input == "pdf")
                 pages_img = render_pages(sample.pdf, args.dpi) if needs_images else []
+                # 문서 하나가 끝나야 결과 줄이 찍히므로, 긴 문서에서는 몇 분씩
+                # 아무것도 안 나온다. 시작했다는 것만 먼저 알린다.
+                pages_note = f"{len(pages_img)}쪽 " if pages_img else ""
+                print(f"  [{i}/{len(samples)}] {sample.doc_id} {pages_note}인식 중...",
+                      flush=True)
                 start = time.perf_counter()
                 page_texts = engine.run(sample.pdf, pages_img, lang)
                 seconds = time.perf_counter() - start
@@ -222,7 +229,9 @@ def run_engine(name: str, samples, args, writer, csv_file) -> list[dict]:
         except Exception as exc:                   # 한 문서가 죽어도 나머지는 돈다
             error = f"{type(exc).__name__}: {exc}"
             print(f"  [{i}/{len(samples)}] {sample.doc_id} 실패 - {error}", flush=True)
-            traceback.print_exc(limit=3)
+            if not shown_trace:                    # 같은 예외를 문서 수만큼 찍지 않는다
+                traceback.print_exc(limit=3)
+                shown_trace = True
 
         s = score(sample.gt_text, pred_text, args.normalize, strip_md)
         row.update({k: v for k, v in s.items() if not k.startswith("_")})
@@ -307,9 +316,10 @@ def main(argv=None):
             except Exception as exc:      # 엔진 자체를 못 올린 경우(미설치 등)
                 print(f"!! {key} 엔진을 건너뛴다 - {type(exc).__name__}: {exc}",
                       flush=True)
-                if isinstance(exc, ImportError):
+                if isinstance(exc, (ImportError, RuntimeError)):
                     print(f"   설치: {INSTALL_HINT.get(key, '')}", flush=True)
-                traceback.print_exc(limit=3)
+                else:
+                    traceback.print_exc(limit=3)
 
     summary_path = args.out.with_name(args.out.stem + "_summary.csv")
     with summary_path.open("w", newline="", encoding="utf-8-sig") as f:

@@ -1,0 +1,102 @@
+Cite as: 609 U. S. ____ (2026)
+1
+Statement of SOTOMAYOR, J.
+SUPREME COURT OF THE UNITED STATES
+CEDRIC RAY JONES v. UNITED STATES
+ON PETITION FOR WRIT OF CERTIORARI TO THE UNITED
+STATES COURT OF APPEALS FOR THE FIFTH CIRCUIT
+No. 25–524. Decided June 30, 2026
+The petition for a writ of certiorari is denied.
+Statement of JUSTICE SOTOMAYOR respecting the denial
+of certiorari.
+I concur in the Court’s decision not to grant, vacate, and
+remand this case in light of Hunter v. United States, 608
+U. S. ___ (2026).  Hunter addressed the enforceability of ap-
+peal waivers specifically “in the sentencing context,” id., at
+___ (slip op., at 1), whereas this petition concerns when a
+collateral-review waiver is enforceable against a challenge
+to a defendant’s conviction. I write, however, to encourage
+lower courts to consider carefully the import of Hunter’s
+reasoning when deciding whether to enforce a collateral-re-
+view or appeal waiver against a defendant who is challeng-
+ing the validity of his conviction.
+Hunter’s reasoning is simple.  It starts with the recogni-
+tion that the judiciary plays a “special, and indeed pivotal,
+role . . . in approving and implementing appeal waivers”:
+District courts must “accept the plea agreement, including
+any appeal waiver,” and circuit courts must “decid[e] to en-
+force it.” Id., at ___–___ (slip op., at 8–9).  “Because that is
+so, the standard for enforcing appeal waivers implicates the
+interests not only of the agreement’s parties, but also of the
+judiciary.” Id., at ___ (slip op., at 9).  Therefore, “an appeal
+waiver is unenforceable,” and may be set aside in a given
+case, “if the sentence is marred by the kind of egregious er-
+ror that would bring the judicial system into disrepute,” i.e.,
+if enforcing it “would result in a miscarriage of justice.”  Id.,
+at ___ (slip op., at 11).  Hunter held that the error “must be
+2
+JONES v. UNITED STATES
+Statement of SOTOMAYOR, J.
+obvious” and “of the type that would undermine public con-
+fidence in the judiciary.”  Ibid. Although these errors are
+“rare,” Hunter explained, the “possibility of correction helps
+keep them so, and thus safeguards that system’s integrity.”
+Id., at ___ (slip op., at 13).
+Hunter’s reasoning could well apply to appeal and collat-
+eral-review waivers when a defendant seeks to challenge
+his conviction itself. This case presents a useful illustra-
+tion. Here, petitioner Cedric Ray Jones was charged in
+2015 with, among other crimes, brandishing a firearm in
+furtherance of a “crime of violence” in violation of 18
+U. S. C. §924(c)(1)(A)(ii).  Jones signed an agreement to
+plead guilty to the §924(c) count, and that agreement con-
+tained a provision “‘waiv[ing] his rights . . . to appeal from
+his convictions and sentences’” and “‘further waiv[ing] his
+right to contest his convictions and sentences in any collat-
+eral proceeding, including proceedings under 28 U. S. C.
+§2241 and 28 U. S. C. §2255.’”  134 F. 4th 831, 834 (CA5
+2025). The District Court approved the plea agreement,
+and the accompanying waiver, and sentenced Jones to
+nearly 48 years’ imprisonment, which included a 7-year
+consecutive sentence for the §924(c) charge.
+In 2018, Jones filed a motion to vacate his conviction un-
+der 28 U. S. C. §2255, arguing that his §924(c) conviction is
+constitutionally invalid because that statute’s “residual
+clause,” under which he had been convicted, is unconstitu-
+tionally vague. While that motion was pending, this Court
+decided United States v. Davis, 588 U. S. 445 (2019), which
+held §924(c)’s residual clause unconstitutionally vague,
+thereby agreeing with Jones on precisely this issue.  De-
+spite Davis, the Government opposed granting Jones relief,
+arguing that the collateral-review waiver in Jones’s plea
+agreement forever waived his right to challenge the consti-
+tutionality of his conviction.  The District Court agreed with
+the Government, enforced Jones’s collateral-review waiver,
+and denied Jones’s motion. The Fifth Circuit affirmed,
+Cite as: 609 U. S. ____ (2026)
+3
+Statement of SOTOMAYOR, J.
+explaining that its Circuit precedent “ha[d] recognized only
+two exceptions” to the enforceability of an appeal or collat-
+eral-review waiver (“‘ineffective assistance of counsel’” and
+“‘a sentence exceeding the statutory maximum’”), neither
+of which applied to Jones.  134 F. 4th, at 840.
+Just like the enforcement of the appeal waiver in Hunter,
+here the District Court’s enforcement of Jones’s collateral-
+review waiver and the Fifth Circuit’s decision to affirm that
+enforcement both appear to “implicat[e] the interests . . . of
+the judiciary” because those “courts are in the middle of,
+and partly responsible for,” the “results” of that waiver.
+Hunter, 608 U. S., at ___ (slip op., at 9).  The end result here
+is that “Jones is currently serving a sentence for a crime”
+that “[a]ll agree” has been “held to be unconstitutional un-
+der Supreme Court precedent.” 134 F. 4th, at 843 (Dennis,
+J., dissenting). The decision to enforce Jones’s collateral-
+review waiver thus might well be leaving “in place” an
+“egregious error” that “bring[s] the judicial system into dis-
+repute.” Hunter, 608 U. S. ___ (slip op., at 1). In the future,
+when defendants challenge the constitutionality of their
+convictions, I encourage the Fifth Circuit and other courts
+to consider carefully whether to enforce a collateral-review
+or appeal waiver in light of the miscarriage-of-justice prin-
+ciples laid out in Hunter.

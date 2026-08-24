@@ -1,0 +1,109 @@
+Cite as: 608 U. S. ____ (2026)
+1
+ALITO, J., dissenting
+SUPREME COURT OF THE UNITED STATES
+UNITED STATES v. DONTE J. CARTER
+ON PETITION FOR WRIT OF CERTIORARI TO THE DISTRICT OF
+COLUMBIA COURT OF APPEALS
+No. 25–885. Decided June 22, 2026
+The petition for a writ of certiorari is denied.
+JUSTICE ALITO, with whom JUSTICE THOMAS joins, dis-
+senting from the denial of certiorari.
+On a September afternoon in 2020, several plain-clothes
+police officers approached a group of black men who were
+lounging on a sidewalk. The officers were responding to an
+“‘uptick in shootings and sounds of gunfire’” in that area.
+341 A. 3d 1067, 1069 (DC 2025).  Respondent Donte Carter
+was among the group.
+An officer approached Carter and asked him if he was
+carrying a weapon.  When Carter said “no,” the officer
+asked, “[d]o you mind hiking your pants for me real quick?”
+App. to Pet. for Cert. 34a. As Carter complied, another of-
+ficer standing a few feet away saw an L-shaped bulge in the
+front of Carter’s pants.  The officer pointed out the bulge,
+which Carter said was his phone. That officer nonetheless
+frisked Carter, and, after a brief struggle, the officers recov-
+ered a stolen firearm hidden among Carter’s multiple pairs
+of compression shorts.
+Carter was charged with firearm and theft offenses.  He
+moved to suppress the gun and a statement that he had
+made after his arrest. He argued that the officer seized him
+in asking him to hike his pants and that the officer lacked
+reasonable suspicion or probable cause at that time.  The
+D. C. Superior Court denied the motion.
+The D. C. Court of Appeals (DCCA) reversed.  After con-
+cluding that the officers’ conduct did not enable the court to
+“objectively determine” whether Carter was seized, the
+2
+UNITED STATES v. CARTER
+ALITO, J., dissenting
+court—relying on its precedent—said that it “must look” to
+a further fact: the “defendant’s race.”  341 A. 3d, at 1076
+(citing Dozier v. United States, 220 A. 3d 933, 944 (DC
+2019)). The proper inquiry, the court stated, was “whether
+an objective and reasonable person sharing the defendant’s
+generalized lived experiences arising out of their racial sta-
+tus”—that is, “sharing Mr. Carter’s racial status as a Black
+man”—“would have felt free to terminate the police encoun-
+ter.” 341 A. 3d, at 1076.  The court then discussed scholar-
+ship that in the court’s view suggests that “Black men are
+more likely to comply with police demands rather than ex-
+ercise their constitutional right to terminate a suspicionless
+police encounter.”  Id., at 1078. And, the court said, the
+officer’s request that Carter hike his pants was a seizure
+due to the “elevated effect” that the request “would have
+had on an objective and reasonable Black man in Mr.
+Carter’s shoes.” Id., at 1080.
+Judge McLeese concurred in the judgment.  He remarked
+that the panel majority had appeared to give “dispositive
+weight” to Carter’s race.  Id., at 1081.  He also expressed
+“uncertainty as to whether the race of a suspect can permis-
+sibly be considered” in assessing whether a seizure oc-
+curred. Ibid.
+The Government asks us to grant review.  It argues that
+the decision below is inconsistent with established prece-
+dent on the question whether a person who is approached
+and asked questions by a police officer has been “seized” un-
+der the Fourth Amendment. Our precedent, the Govern-
+ment maintains, asks whether a “‘reasonable person’”
+would feel that he or she is not free to end the conversation.
+United States v. Drayton, 536 U. S. 194, 201–202 (2002).  In
+the Government’s view, the injection of an individual’s race
+into the “reasonable person” test contravenes our decisions.
+The Government also questions the reliability of the studies
+on which the DCCA relied, and it argues that the DCCA’s
+Cite as: 608 U. S. ____ (2026)
+3
+ALITO, J., dissenting
+test will hamper legitimate and important police work in
+the District of Columbia.
+I would grant the petition. The DCCA appears to be com-
+mitted to the test that it used in this case, and the lawful-
+ness of that test is an important question for both doctrinal
+and practical reasons.  Under the test, officers will need to
+quickly assess a person’s race, and if officers and courts
+must craft special rules for black persons, what about dark-
+skinned Latinos, other Latinos, and members of other mi-
+nority groups?
+We have said that our “‘Constitution is color-blind.’”  Stu-
+dents for Fair Admission, Inc. v. President and Fellows of
+Harvard College, 600 U. S. 181, 230 (2023).  It “almost
+never” allows government actors to treat persons differ-
+ently based on their race. Louisiana v. Callais, 608 U. S.
+___, ___ (2026) (slip op., at 17). And we have rejected the
+proposition that the Constitution permits an individual to
+be treated differently based on a “perception that members
+of the same racial group—regardless of their age, educa-
+tion, economic status, or the community in which they
+live—think alike.” Shaw v. Reno, 509 U. S. 630, 647 (1993).
+It is dangerous to allow an individual to be treated differ-
+ently based on statistics, studies, or expert testimony that
+purports to show that members of the racial or ethnic group
+to which he belongs are more likely to act in a certain way
+than are members of other groups.  Here, the special treat-
+ment helped the individual; in other situations it will not.
+See Buck v. Davis, 580 U. S. 100, 119 (2017).
+Perhaps the DCCA’s test has legitimate justifications.  In
+any event, it is important, and it warrants this Court’s re-
+view. I therefore respectfully dissent from the denial of cer-
+tiorari.

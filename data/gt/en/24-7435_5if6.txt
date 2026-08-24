@@ -1,0 +1,100 @@
+Cite as: 607 U. S. ____ (2025)
+1
+Statement of SOTOMAYOR, J.
+SUPREME COURT OF THE UNITED STATES
+ANTONIO NATHANIEL DAVENPORT, JR. v.
+UNITED STATES
+ON PETITION FOR WRIT OF CERTIORARI TO THE UNITED
+STATES COURT OF APPEALS FOR THE FOURTH CIRCUIT
+No. 24–7435. Decided December 8, 2025
+The petition for a writ of certiorari is denied.
+Statement of JUSTICE SOTOMAYOR respecting the denial
+of certiorari.
+I concur in the denial of certiorari because the petition is
+untimely and petitioner’s counsel gave no explanation for
+the delay. See this Court’s Rule 13.1; Schacht v. United
+States, 398 U. S. 58, 64 (1970) (the deadline to file a petition
+in a criminal case may be “relaxed by the Court in the exer-
+cise of its discretion when the ends of justice so require”).  I
+write separately to address a statement made by the Dis-
+trict Court when declining to give a jury instruction re-
+quested by petitioner.
+Petitioner was charged with, as relevant, murder in aid
+of racketeering. See 18 U. S. C. §1959(a)(1).  To make its
+case, the Government had to prove beyond a reasonable
+doubt that petitioner committed murder under North Car-
+olina state law. At trial, the proposed jury instructions at
+no point defined what it means to prove an element of the
+offense beyond a reasonable doubt.  Petitioner asked the
+District Court to give a jury instruction defining reasonable
+doubt for the underlying murder charge drawn from a
+North Carolina template jury instruction: “‘For these ele-
+ments of murder, proof beyond a reasonable doubt is proof
+that fully satisfies or entirely convinces you of the Defend-
+ant’s guilt of murder.’” App. in No. 22–4660 (CA4), p. 1579
+(CA4 App.).
+2
+DAVENPORT v. UNITED STATES
+Statement of SOTOMAYOR, J.
+The District Court demurred, stating that federal courts
+are “specifically prohibited from giving a definition of rea-
+sonable doubt.”  Id., at 1493. After further consideration,
+the District Court denied the request and explained that
+“the federal rule . . . prohibits a court from defining reason-
+able doubt over and above what’s included in the instruc-
+tions already.” Id., at 1661. As a result, the jury did not
+receive an instruction on what reasonable doubt means.
+The District Court was mistaken.  Federal courts are not
+prohibited from defining reasonable doubt for the jury.  In
+Victor v. Nebraska, 511 U. S. 1 (1994), this Court held that
+“the Constitution neither prohibits trial courts from defin-
+ing reasonable doubt nor requires them to do so as a matter
+of course.” Id., at 5. Almost all the Courts of Appeals abide
+by this understanding. See, e.g., United States v. Walton,
+207 F. 3d 694, 696–697 (CA4 2000) (en banc) (“[T]he well-
+established rule of this Circuit is that although the district
+court may define reasonable doubt to a jury upon request,
+the district court is not required to do so”); see also United
+States v. Alt, 58 F. 4th 910, 921, and n. 1 (CA7 2023)
+(Kirsch, J., concurring) (explaining that “all” circuits “but
+[the Seventh Circuit] give district judges at least some dis-
+cretion to” define reasonable doubt).  Here, the District
+Court should have recognized that it had discretion over
+whether to grant petitioner’s request and define reasonable
+doubt for the jury.
+To be sure, in some cases, it may be wise not to define
+reasonable doubt.  See Holland v. United States, 348 U. S.
+121, 140 (1954) (“‘Attempts to explain the term “reasonable
+doubt” do not usually result in making it any clearer to the
+minds of the jury’”). In this case, for example, the District
+Court expressed concern that giving petitioner’s requested
+instruction as to the state-law murder charges, but no other
+aspects of the federal offense, might confuse the jury by sug-
+gesting they should apply different reasonable-doubt stand-
+ards to different elements.  CA4 App., 1662–1663.
+Cite as: 607 U. S. ____ (2025)
+3
+Statement of SOTOMAYOR, J.
+Still, there are cases where defining reasonable doubt
+may be appropriate. “While judges and lawyers are famil-
+iar with the reasonable doubt standard, the words ‘beyond
+a reasonable doubt’ are not self-defining for jurors.”  Victor,
+511 U. S., at 26 (Ginsburg, J., concurring in part and con-
+curring in judgment).  “Several studies of juror behavior
+have concluded that ‘jurors are often confused about the
+meaning of reasonable doubt’ when that term is left unde-
+fined.” Ibid. (quoting Note, Defining Reasonable Doubt, 90
+Colum. L. Rev. 1716, 1723 (1990)).
+In view of the central importance of the reasonable-doubt
+standard to criminal procedure, balanced against the poten-
+tial for confusion from a reasonable-doubt instruction, dis-
+trict courts should weigh the circumstances of each individ-
+ual case to decide whether to provide a definition to the
+jury. For example, a judge may choose to give an explana-
+tion to clear up potential confusion caused by a party’s mis-
+statement of the standard.  Or a judge may give one if the
+jury asks for it. This careful consideration will ensure that
+the reasonable-doubt standard retains its “indispensable”
+role in “command[ing] the respect and confidence of the
+community in applications of the criminal law.”  In re Win-
+ship, 397 U. S. 358, 364 (1970).
