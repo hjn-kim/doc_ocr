@@ -74,6 +74,13 @@ def parse_args(argv=None):
                    help="gpu:0 또는 cpu. tesseract 는 항상 CPU 로 돈다")
     p.add_argument("--dpi", type=int, default=200, help="PDF -> 이미지 렌더 해상도")
     p.add_argument("--limit", type=int, default=None, help="앞에서 N개 문서만")
+    p.add_argument("--groups", nargs="+", default=None,
+                   help="이 그룹(data/ 하위 폴더)만 돌린다. 예: --groups ch")
+    p.add_argument("--exclude-groups", nargs="+", default=None,
+                   help="이 그룹만 빼고 돌린다")
+    p.add_argument("--merge", action="store_true",
+                   help="result.csv 를 통째로 덮지 않고 이번에 다시 돌린 "
+                        "(engine, doc_id) 행만 갈아끼운다. 요약은 합친 행으로 다시 낸다")
     p.add_argument("--normalize", default="basic",
                    choices=["none", "basic", "lower", "nospace", "nopunct"],
                    help="채점 전 정규화 (기본 basic: NFKC + 공백 축약)")
@@ -152,17 +159,39 @@ def score(gt_text, pred_text: str, profile: str, strip_md: bool) -> dict:
     }
 
 
-def summarize(name: str, device: str, group: str, records: list[dict],
-              profile: str) -> dict:
-    """문서 기록들을 한 줄로 접는다. group="ALL" 이면 전체 집계다."""
-    chars = [r["char"] for r in records if r["char"] is not None]
-    words = [r["word"] for r in records if r["word"] is not None]
-    exacts = [r["exact"] for r in records if r["exact"] is not None]
-    seconds = sum(r["seconds"] or 0.0 for r in records)
-    pages = sum(r["pages"] or 0 for r in records)
+def _num(value, cast=float):
+    """CSV 에서 읽어온 값은 다 문자열이고 빈 칸도 있다. 숫자면 숫자로, 아니면 None."""
+    try:
+        return cast(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _mixed(rows: list[dict], field: str) -> str:
+    """한 칸에 값이 여러 개 섞여 있으면(--merge 로 합친 경우) 다 적는다."""
+    return "+".join(sorted({str(r.get(field, "")) for r in rows if r.get(field)}))
+
+
+def summarize_rows(rows: list[dict], group: str) -> dict:
+    """결과 행들을 한 줄로 접는다. group="ALL" 이면 그 엔진의 전체 집계다.
+
+    이전 실행에서 읽어온 행(전부 문자열)과 이번 실행의 행(숫자)이 섞여 들어와도
+    되게, ROW_FIELDS 에 이미 적힌 값만 보고 계산한다. char_errors/gt_chars 를
+    그대로 더하므로 micro 평균은 처음 돌렸을 때와 똑같이 나온다.
+    """
+    scored = [r for r in rows if not r.get("error") and _num(r.get("gt_found"), int) == 1]
+    chars = [M.ErrorRate(_num(r.get("char_errors"), int) or 0,
+                         _num(r.get("gt_chars"), int) or 0) for r in scored]
+    words = [M.ErrorRate(_num(r.get("word_errors"), int) or 0,
+                         _num(r.get("gt_words"), int) or 0) for r in scored]
+    exacts = [v for v in (_num(r.get("exact_match"), int) for r in scored)
+              if v is not None]
+    seconds = sum(_num(r.get("seconds")) or 0.0 for r in rows)
+    pages = sum(_num(r.get("n_pages"), int) or 0 for r in rows)
     return {
-        "engine": name, "group": group, "device": device,
-        "n_docs": len(records), "n_scored": len(chars), "n_pages": pages,
+        "engine": _mixed(rows, "engine"), "group": group,
+        "device": _mixed(rows, "device"),
+        "n_docs": len(rows), "n_scored": len(chars), "n_pages": pages,
         "exact_match": round(sum(exacts) / len(exacts), 6) if exacts else "",
         "cer_micro": round(M.micro_average(chars), 6) if chars else "",
         "cer_macro": round(M.macro_average(chars), 6) if chars else "",
@@ -170,13 +199,52 @@ def summarize(name: str, device: str, group: str, records: list[dict],
         "wer_macro": round(M.macro_average(words), 6) if words else "",
         "total_seconds": round(seconds, 2),
         "sec_per_page": round(seconds / pages, 3) if pages else "",
-        "n_failed": sum(1 for r in records if r["error"]),
-        "normalize": profile,
+        "n_failed": sum(1 for r in rows if r.get("error")),
+        "normalize": _mixed(rows, "normalize"),
     }
 
 
+def build_summaries(rows: list[dict]) -> list[dict]:
+    """엔진별로 ALL 한 줄, 그룹이 둘 이상이면 그룹별로도 한 줄."""
+    out = []
+    for name in dict.fromkeys(r.get("engine") for r in rows):   # 실행 순서 유지
+        mine = [r for r in rows if r.get("engine") == name]
+        out.append(summarize_rows(mine, "ALL"))
+        groups = sorted({r.get("group", "") for r in mine})
+        if len(groups) > 1:                        # en/ko 처럼 나뉘어 있을 때만
+            out += [summarize_rows([r for r in mine if r.get("group") == g], g)
+                    for g in groups]
+    return out
+
+
+def filter_groups(samples, keep, drop) -> list:
+    """--groups / --exclude-groups 로 data/ 하위 폴더 일부만 남긴다."""
+    have = sorted({s.group for s in samples})
+    if keep:
+        unknown = [g for g in keep if g not in have]
+        if unknown:
+            raise SystemExit(f"그런 그룹이 없다: {', '.join(unknown)} "
+                             f"(있는 것: {', '.join(have)})")
+        samples = [s for s in samples if s.group in set(keep)]
+    if drop:
+        samples = [s for s in samples if s.group not in set(drop)]
+    if not samples:
+        raise SystemExit("그룹을 걸러내니 남은 문서가 없다")
+    return samples
+
+
+def keep_other_rows(path: Path, drop: set[tuple[str, str]]) -> list[dict]:
+    """--merge 용. 예전 result.csv 에서 이번에 다시 쓸 행만 걷어내고 나머지를 남긴다."""
+    if not path.is_file():
+        return []
+    with path.open(newline="", encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    return [{k: r.get(k, "") for k in ROW_FIELDS} for r in rows
+            if (r.get("engine"), r.get("doc_id")) not in drop]
+
+
 def run_engine(name: str, samples, args, writer, csv_file) -> list[dict]:
-    """엔진 하나로 전체 문서를 돌리고 요약 행(전체 + 그룹별)을 돌려준다."""
+    """엔진 하나로 문서를 다 돌리고, CSV 에 쓴 문서별 행을 돌려준다."""
     pred_root = args.pred_dir / name
     pred_root.mkdir(parents=True, exist_ok=True)
     # 객체만 만들어 둔다. 무거운 import 와 모델 로딩은 첫 문서에서 일어난다.
@@ -185,7 +253,7 @@ def run_engine(name: str, samples, args, writer, csv_file) -> list[dict]:
     strip_md = not args.keep_markdown
     lang_table = languages.load_map(args.lang_map)
 
-    records, shown_trace = [], False
+    written, shown_trace = [], False
     print(f"\n=== {name} (device={device}) - 문서 {len(samples)}개 ===", flush=True)
     if not args.metrics_only:
         # 여기서 미리 올린다. 모델 로딩 시간이 첫 문서의 OCR 시간에 섞이지 않고,
@@ -244,15 +312,8 @@ def run_engine(name: str, samples, args, writer, csv_file) -> list[dict]:
         row["error"] = error
         writer.writerow(row)
         csv_file.flush()                           # 중간에 끊겨도 여기까진 남는다
+        written.append(row)
 
-        scored = s["_char"] is not None and not error
-        records.append({
-            "group": sample.group, "error": error, "seconds": seconds,
-            "pages": n_pages,
-            "char": s["_char"] if scored else None,
-            "word": s["_word"] if scored else None,
-            "exact": s["exact_match"] if scored else None,
-        })
         mark = "cached" if cached else (f"{seconds:.1f}s" if seconds else "-")
         if row["lang"]:
             mark = f"{row['lang']} {mark}"
@@ -262,13 +323,7 @@ def run_engine(name: str, samples, args, writer, csv_file) -> list[dict]:
 
     del engine
     free_gpu()
-
-    rows = [summarize(name, device, "ALL", records, args.normalize)]
-    groups = sorted({r["group"] for r in records})
-    if len(groups) > 1:                            # en/ko 처럼 나뉘어 있을 때만
-        rows += [summarize(name, device, g, [r for r in records if r["group"] == g],
-                           args.normalize) for g in groups]
-    return rows
+    return written
 
 
 def print_summary(rows: list[dict]):
@@ -292,6 +347,7 @@ def main(argv=None):
     samples = load_samples(args.data, args.gt_dir, args.limit)
     if not samples:
         raise SystemExit(f"{args.data} 에서 PDF 를 못 찾았다")
+    samples = filter_groups(samples, args.groups, args.exclude_groups)
     n_gt = sum(1 for s in samples if s.gt_text is not None)
     print(f"PDF {len(samples)}개, 정답 {n_gt}개, 정규화={args.normalize}, "
           f"엔진={', '.join(args.engines)}")
@@ -304,15 +360,32 @@ def main(argv=None):
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.pred_dir.mkdir(parents=True, exist_ok=True)
-    summaries = []
+
+    kept: list[dict] = []
+    if args.merge:
+        # 이번에 다시 쓸 (engine, doc_id) 만 빼고 예전 행을 그대로 들고 간다.
+        mine = {(engine_registry.resolve(n), s.doc_id)
+                for n in args.engines for s in samples}
+        kept = keep_other_rows(args.out, mine)
+        others = sorted({r["normalize"] for r in kept} - {args.normalize, ""})
+        print(f"기존 행 {len(kept)}개 유지, "
+              f"{len(mine)}개 (engine, doc_id) 를 갈아끼운다")
+        if others:
+            print(f"! 유지하는 행은 normalize={'/'.join(others)} 로 채점된 것이다. "
+                  f"기준을 맞추려면 --metrics-only 로 전체를 다시 채점해라")
+
+    rows: list[dict] = []
     # utf-8-sig: 엑셀에서 한글이 안 깨지게
     with args.out.open("w", newline="", encoding="utf-8-sig") as f:
         writer = csv.DictWriter(f, fieldnames=ROW_FIELDS)
         writer.writeheader()
+        writer.writerows(kept)                     # 먼저 흘려둔다
+        f.flush()
+        rows += kept
         for name in args.engines:
             key = engine_registry.resolve(name)
             try:
-                summaries += run_engine(key, samples, args, writer, f)
+                rows += run_engine(key, samples, args, writer, f)
             except Exception as exc:      # 엔진 자체를 못 올린 경우(미설치 등)
                 print(f"!! {key} 엔진을 건너뛴다 - {type(exc).__name__}: {exc}",
                       flush=True)
@@ -321,6 +394,7 @@ def main(argv=None):
                 else:
                     traceback.print_exc(limit=3)
 
+    summaries = build_summaries(rows)          # --merge 로 살린 행까지 같이 접는다
     summary_path = args.out.with_name(args.out.stem + "_summary.csv")
     with summary_path.open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=SUMMARY_FIELDS)
