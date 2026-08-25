@@ -14,6 +14,8 @@ src/
   languages.py         폴더 이름(ko, ch, ...) -> 엔진 언어 설정
 data/                  언어 폴더별 PDF (ch/ en/ ko/ pil/ ru/ uz/ vn/) + 정답 텍스트
 result/                result.csv, result_summary.csv, pred/<engine>/*.txt
+app.py                 결과를 보는 streamlit 대시보드
+scripts/               tesseract 언어 파일 받기 등 잡일
 ```
 
 ## 1. 빠른 실행
@@ -180,3 +182,23 @@ vLLM 서버로 띄워 쓸 거면 `--paddle-backend vllm-server --paddle-server-u
 **EasyOCR** — 언어는 폴더별 표를 따른다(4-1). `--easyocr-langs` 는 그 표가 없을 때의
 기본값이다. 기본은 `paragraph=True` 로 줄을 문단으로 묶는다.
 `--easyocr-no-paragraph` 로 줄 단위 출력을 받는다.
+
+## 8. 결과 보기
+
+CSV 를 눈으로 훑는 대신 대시보드로 본다. 벤치마크를 돌린 뒤 `result/` 를 받아와서
+**로컬에서** 띄운다 (GPU 서버에는 streamlit 을 깔지 않는다).
+
+```bash
+pip install streamlit altair
+streamlit run app.py
+```
+
+| 탭 | 보는 것 |
+| --- | --- |
+| 개요 | 엔진별 CER/WER, micro·macro 비교, 속도 대비 정확도 |
+| 한국어 vs 다국어 | 한국어와 나머지 언어의 성적 차이. 전체 평균 하나로는 안 보이는 축이다 |
+| 언어별 | 엔진 × 7언어 히트맵, 언어별 1위와 2위와의 간격 |
+| 문서별 | 문서마다 어느 엔진이 1등인지. 모든 엔진이 헤맨 문서는 정답부터 의심한다 |
+| 인식 결과 보기 | 정답과 인식 결과를 나란히. 틀린 자리를 오인식·누락·지어냄으로 나눠 칠한다 |
+
+지표는 **낮을수록 좋다**. 사이드바에서 엔진·언어를 추리고 micro/macro 를 바꿀 수 있다.
