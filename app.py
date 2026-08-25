@@ -363,9 +363,7 @@ with tab_overview:
         "문서 파싱 벤치마크 전반에서 텍스트 인식 정확도의 기본 척도로 사용됨. "
         "한글·숫자·기호가 혼용된 문서의 전반적 인식 정확도를 단일 수치로 비교할 수 있어 "
         "OCR 품질의 대표지표로 선정. \n"
-        "또한 WER 의 경우 띄어쓰기가 없는 "
-        + (no_space if no_space else "언어")
-        + "에서 평가 지표로 사용 불가."
+        "또한 WER 의 경우 띄어쓰기가 없는 중국어에서 평가 지표로 사용 불가."
     )
 
     # st.dataframe 은 긴 셀을 한 줄로 잘라 버린다. st.table 은 줄바꿈해서 전부 보인다.
@@ -382,16 +380,12 @@ with tab_overview:
         .style.hide(axis="index")
         # st.table 은 pandas 의 table_styles 를 그대로 CSS 로 내보낸다.
         .set_table_styles([
-            # st.table 은 hide(axis="index") 를 무시하고 0,1,2,3 을 그대로 그린다
-            {"selector": "th.row_heading, th.blank",
-             "props": [("min-width", "64px"), ("width", "64px")]},
-            {"selector": "th.col0, td.col0",
-             "props": [("min-width", "180px"), ("width", "180px")]},
-            # width:100% 는 "남은 폭을 전부" 라는 뜻이다. 고정 px 로 두면 화면이 좁을 때
-            # 표가 화면을 넘고, 글은 그 폭에서 접혀 오른쪽이 비어 보인다.
+            # table-layout:fixed 라야 아래 % 폭이 그대로 먹는다. auto 로 두면 브라우저가
+            # 글자 수를 보고 제 맘대로 나눠서 긴 칸이 덜 벌어지고 오른쪽이 빈다.
+            {"selector": "", "props": [("table-layout", "fixed"), ("width", "100%")]},
+            {"selector": "th.col0, td.col0", "props": [("width", "20%")]},
             {"selector": "th.col1, td.col1",
-             "props": [("width", "100%"), ("min-width", "320px"),
-                       ("white-space", "pre-line")]},
+             "props": [("width", "80%"), ("white-space", "pre-line")]},
         ])
     )
 
