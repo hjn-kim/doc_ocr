@@ -23,6 +23,16 @@ _WS_RE = re.compile(r"\s+")
 _ALLWS_RE = re.compile(r"\s")
 # 문장부호 전부 (유니코드 카테고리 P/S) — nopunct 모드에서만 쓴다.
 _MD_RE = re.compile(r"[*_`#>|~]+")
+# PaddleOCR-VL 은 표를 HTML 로 뱉는다. 태그는 글자를 얼마나 잘 읽었느냐가 아니라
+# 출력 형식이라, plain text 정답과 견주면서 오류로 세면 표가 든 문서만 억울하게
+# 점수가 깎인다. 칸 경계는 공백으로 바꾼다 — 그냥 지우면 앞뒤 칸이 한 단어로
+# 붙어서 이번엔 WER 이 엉뚱하게 오른다.
+_TABLE_TAG_RE = re.compile(
+    r"</?(?:table|thead|tbody|tfoot|tr|td|th|caption|col|colgroup)(?:\s[^>]*)?/?>",
+    re.I,
+)
+# 셀 안의 줄바꿈/탭을 진짜 개행이 아니라 백슬래시+n, 백슬래시+t 두 글자로 적어 둔다.
+_ESCAPED_WS_RE = re.compile(r"\\[nrt]")
 
 PROFILES = ("none", "basic", "lower", "nospace", "nopunct")
 
@@ -32,6 +42,8 @@ def _strip_markdown(text: str) -> str:
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", " ", text)      # 이미지
     text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)   # 링크는 표시 텍스트만
     text = re.sub(r"^\s*[-=]{3,}\s*$", " ", text, flags=re.M)
+    text = _TABLE_TAG_RE.sub(" ", text)                    # <table><tr><td> ...
+    text = _ESCAPED_WS_RE.sub(" ", text)                   # 글자 그대로 적힌 개행/탭
     return _MD_RE.sub("", text)
 
 
