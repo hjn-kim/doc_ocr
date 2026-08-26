@@ -1,0 +1,2 @@
+﻿engine,group,device,n_docs,n_scored,n_pages,exact_match,cer_micro,cer_macro,wer_micro,wer_macro,total_seconds,sec_per_page,n_failed,normalize
+paddleocr_vl,ALL,gpu:0,7,7,19,0.0,0.042048,0.05357,0.75398,0.726927,236.05,12.424,0,basic
