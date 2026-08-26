@@ -358,21 +358,16 @@ with tab_overview:
     st.subheader("지표")
 
     no_space = "·".join(LANG_LABEL.get(g, g) for g in lang_order if g in NO_SPACE_LANGS)
-    # 줄을 나눌 자리는 문자열 안의 개행문자가 아니라 표의 행으로 나눈다.
-    # 개행문자는 white-space:pre-line 이 살아 있어야 먹는데 그 CSS 가 버전을 탄다.
-    # 행으로 나누면 어떤 버전에서도 반드시 줄이 바뀐다.
+    # 문장 끝의 공백 두 칸 + 개행은 마크다운의 강제 줄바꿈이다. Streamlit 은 표 셀도
+    # 마크다운으로 그리므로 CSS 와 무관하게 여기서 줄이 바뀐다.
     reason = (
         "OCR-D 평가 규격이 문자 단위 오류율(CER)을 OCR 품질의 1차 지표로 규정하고 있으며, "
         "문서 파싱 벤치마크 전반에서 텍스트 인식 정확도의 기본 척도로 사용됨. "
-        "한글·숫자·기호가 혼용된 문서의 전반적 인식 정확도를 단일 수치로 비교할 수 있어 OCR 품질의 대표지표로 선정."
-    )
-    reason_wer = (
-        "또한 WER 의 경우 띄어쓰기가 없는 "
-        + (no_space if no_space else "언어")
-        + "에서 평가 지표로 사용 불가."
+        "문자·숫자·기호가 혼용된 문서의 인식 정확도를 단일 수치로 비교할 수 있어 "
+        "OCR 품질의 대표지표로 선정." + "\n"
+        + "또한 WER 의 경우 띄어쓰기가 없는 중국어에서 평가 지표로 사용 불가."
     )
 
-    # st.dataframe 은 긴 셀을 한 줄로 잘라 버린다. st.table 은 줄바꿈해서 전부 보인다.
     st.table(
         pd.DataFrame(
             [
@@ -380,23 +375,24 @@ with tab_overview:
                 ("WER", "(치환 + 삭제 + 삽입) / 정답 단어 수"),
                 ("OCR 대표 지표", "CER"),
                 ("이유", reason),
-                ("", reason_wer),
             ],
             columns=["항목", "내용"],
         )
         .style.hide(axis="index")
-        # 폭 지정을 두 경로로 건다. table_styles 는 표 전체 선택자(#T_uuid)에 걸려
-        # Streamlit 버전을 타고, set_properties 는 셀마다 붙는 id 에 직접 걸린다.
-        # 한쪽이 안 먹어도 다른 쪽이 남는다. min-width 는 쓰지 않는다 — width 를 이겨서
-        # 화면이 넓어져도 글이 그 폭에서 접힌다.
         .set_table_styles([
             {"selector": "", "props": [("table-layout", "fixed"), ("width", "100%")]},
             {"selector": "th.col0, td.col0", "props": [("width", "20%")]},
-            {"selector": "th.col1, td.col1",
-             "props": [("width", "80%"), ("white-space", "pre-line")]},
+            {"selector": "th.col1, td.col1", "props": [("width", "80%")]},
+            # Streamlit 1.61 은 셀 내용을 width:fit-content / max-width:25rem(400px) 인
+            # 마크다운 상자에 넣는다. 칸을 아무리 넓혀도 글이 400px 에서 접히는 이유가
+            # 이것이다. 그 상자를 칸 폭까지 풀어준다.
+            {"selector": 'td.col1 [data-testid="stMarkdownContainer"]',
+             "props": [("max-width", "none"), ("width", "100%")]},
+            # 상자 안의 문단은 white-space:normal 로 고정돼 있어 개행이 죽는다.
+            # 마크다운 강제 줄바꿈이 막히는 경우를 대비한 보험이다.
+            {"selector": 'td.col1 [data-testid="stMarkdownContainer"] p',
+             "props": [("white-space", "pre-line")]},
         ])
-        .set_properties(subset=["항목"], **{"width": "20%"})
-        .set_properties(subset=["내용"], **{"width": "80%", "white-space": "pre-line"})
     )
 
     st.subheader("엔진별 요약")
