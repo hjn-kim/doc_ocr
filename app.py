@@ -358,12 +358,18 @@ with tab_overview:
     st.subheader("지표")
 
     no_space = "·".join(LANG_LABEL.get(g, g) for g in lang_order if g in NO_SPACE_LANGS)
+    # 줄을 나눌 자리는 문자열 안의 개행문자가 아니라 표의 행으로 나눈다.
+    # 개행문자는 white-space:pre-line 이 살아 있어야 먹는데 그 CSS 가 버전을 탄다.
+    # 행으로 나누면 어떤 버전에서도 반드시 줄이 바뀐다.
     reason = (
         "OCR-D 평가 규격이 문자 단위 오류율(CER)을 OCR 품질의 1차 지표로 규정하고 있으며, "
         "문서 파싱 벤치마크 전반에서 텍스트 인식 정확도의 기본 척도로 사용됨. "
-        "한글·숫자·기호가 혼용된 문서의 전반적 인식 정확도를 단일 수치로 비교할 수 있어 "
-        "OCR 품질의 대표지표로 선정. \n"
-        "또한 WER 의 경우 띄어쓰기가 없는 중국어에서 평가 지표로 사용 불가."
+        "한글·숫자·기호가 혼용된 문서의 전반적 인식 정확도를 단일 수치로 비교할 수 있어 OCR 품질의 대표지표로 선정."
+    )
+    reason_wer = (
+        "또한 WER 의 경우 띄어쓰기가 없는 "
+        + (no_space if no_space else "언어")
+        + "에서 평가 지표로 사용 불가."
     )
 
     # st.dataframe 은 긴 셀을 한 줄로 잘라 버린다. st.table 은 줄바꿈해서 전부 보인다.
@@ -374,19 +380,23 @@ with tab_overview:
                 ("WER", "(치환 + 삭제 + 삽입) / 정답 단어 수"),
                 ("OCR 대표 지표", "CER"),
                 ("이유", reason),
+                ("", reason_wer),
             ],
             columns=["항목", "내용"],
         )
         .style.hide(axis="index")
-        # st.table 은 pandas 의 table_styles 를 그대로 CSS 로 내보낸다.
+        # 폭 지정을 두 경로로 건다. table_styles 는 표 전체 선택자(#T_uuid)에 걸려
+        # Streamlit 버전을 타고, set_properties 는 셀마다 붙는 id 에 직접 걸린다.
+        # 한쪽이 안 먹어도 다른 쪽이 남는다. min-width 는 쓰지 않는다 — width 를 이겨서
+        # 화면이 넓어져도 글이 그 폭에서 접힌다.
         .set_table_styles([
-            # table-layout:fixed 라야 아래 % 폭이 그대로 먹는다. auto 로 두면 브라우저가
-            # 글자 수를 보고 제 맘대로 나눠서 긴 칸이 덜 벌어지고 오른쪽이 빈다.
             {"selector": "", "props": [("table-layout", "fixed"), ("width", "100%")]},
             {"selector": "th.col0, td.col0", "props": [("width", "20%")]},
             {"selector": "th.col1, td.col1",
              "props": [("width", "80%"), ("white-space", "pre-line")]},
         ])
+        .set_properties(subset=["항목"], **{"width": "20%"})
+        .set_properties(subset=["내용"], **{"width": "80%", "white-space": "pre-line"})
     )
 
     st.subheader("엔진별 요약")
