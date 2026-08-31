@@ -1,21 +1,8 @@
-# -*- coding: utf-8 -*-
-"""result/ 의 OCR 벤치마크 결과를 엔진별로 비교하는 대시보드.
-
-    pip install streamlit altair
-    streamlit run app.py
-
-로컬에서 띄운다. GPU 서버에는 streamlit 을 깔지 않는다 — 거기서는 벤치마크만
-돌리고 result/ 를 받아와서 여기서 본다.
-
-result/result2.csv (문서 x 엔진 한 줄) 와 result/result2_summary.csv (엔진 x 언어
-집계) 를 읽는다. 먼저 `python src/run_benchmark.py` 를 돌려 두 파일을 만들어야 한다.
-
-CER 과 WER 은 **낮을수록 좋다**. 이 앱의 모든 정렬과 순위는 그 방향을 따른다.
-"""
 
 from __future__ import annotations
 
 import difflib
+import os
 import sys
 from pathlib import Path
 
@@ -23,19 +10,12 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-# 디자인(공통 CSS)은 여기서 정의하지 않고 shared_utils 에서 받아온다.
-# 그 파일이 없거나 의존 패키지가 빠져도 앱은 떠야 하므로 실패는 무시한다.
-try:
-    from shared_utils import apply_common_styles
-except Exception:                                   # noqa: BLE001
-    def apply_common_styles():                      # 디자인만 빠지고 나머지는 그대로 동작
-        pass
-
-ROOT = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT / "src"))   # 채점에 쓴 정규화를 그대로 재사용한다
-
-st.set_page_config(page_title="OCR 엔진 비교", page_icon="🔍", layout="wide")
-apply_common_styles()          # 폰트·여백·탭 스타일 — shared_utils 가 갖고 있다
+# 이 파일은 app/pages/ 에 두고, 데이터는 전부 app/document_lab/ocr/ 한 곳에 모은다.
+#   ocr/result2.csv  ocr/result2_summary.csv  ocr/gt/<언어>/*.txt  ocr/pred/<엔진>/*.txt
+# 다른 자리에 두고 시험할 때는 환경변수 OCR_DIR 로 덮어쓴다.
+ROOT = Path(__file__).resolve().parent                      # app/pages
+OCR_DIR = Path(os.getenv("OCR_DIR", str(ROOT.parent / "document_lab" / "ocr")))
+sys.path.insert(0, str(OCR_DIR))        # normalize.py 를 여기 두면 채점과 같게 정규화한다
 
 
 # ── 색 ────────────────────────────────────────────────────────
@@ -198,10 +178,10 @@ def local_paths(doc_id: str, engine: str) -> tuple[Path, Path]:
     """
     group, stem = split_doc_id(doc_id)
     sub = "" if group == "root" else group
-    gt = ROOT / "data" / "gt" / sub / f"{stem}.txt"
-    if not gt.is_file():
-        gt = ROOT / "data" / sub / f"{stem}.txt"
-    pred = ROOT / "result" / "pred" / engine / f"{doc_id}.txt"
+    gt = OCR_DIR / "gt" / sub / f"{stem}.txt"
+    if not gt.is_file():                       # 언어 폴더 없이 한곳에 몰아둔 경우
+        gt = OCR_DIR / "gt" / f"{stem}.txt"
+    pred = OCR_DIR / "pred" / engine / f"{doc_id}.txt"
     return gt, pred
 
 
@@ -236,13 +216,69 @@ def doc_label(doc_id: str) -> str:
     return f"{LANG_LABEL.get(group, group)} · {stem}"
 
 
+# ---------------------------------------------------------
+# 스타일
+#
+# 2-1 / 2-3 페이지와 같은 규칙을 쓴다. 탭 규칙만 shared_utils 에서 값을 가져왔다
+# (그 함수 자체는 .block-container 를 100% !important 로 덮어써서 폭이 두 페이지와
+#  달라지므로 부르지 않는다).
+# ---------------------------------------------------------
+st.markdown(
+    """
+    <style>
+        /* Outfit / Inter 는 시스템에 없어 웹폰트로 가져온다 */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Inter:wght@400;500;700&display=swap');
+
+        .block-container {
+            max-width: 1080px;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .main-title {
+            font-family: 'Outfit', 'Inter', sans-serif;
+            background: linear-gradient(90deg, #4A90E2, #8E2DE2);
+            -webkit-background-clip: text;
+            background-clip: text;              /* 웹킷 아닌 브라우저용 */
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            font-size: 2.8rem;
+            margin-bottom: 0.2rem;
+        }
+        .subtitle {
+            font-family: 'Inter', sans-serif;
+            color: #7f8c8d;
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stTabs [data-baseweb="tab-list"] {
+            gap: 24px;
+        }
+        .stTabs [data-baseweb="tab"] {
+            height: 50px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .stTabs [aria-selected="true"] {
+            border-bottom: 2px solid #4A90E2 !important;
+            color: #4A90E2 !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
 # ── 사이드바 ──────────────────────────────────────────────────
 st.sidebar.header("설정")
-result_dir = st.sidebar.text_input("result 폴더", value=str(ROOT / "result"))
+result_dir = st.sidebar.text_input("result 폴더", value=str(OCR_DIR))
 
 rdir = Path(result_dir)
 if not (rdir / "result2.csv").exists():
-    st.title("OCR 엔진 비교")
+    st.markdown('<h1 class="main-title">OCR 엔진 비교</h1>', unsafe_allow_html=True)
     st.warning(f"`{rdir / 'result2.csv'}` 가 없습니다.")
     st.code("python src/run_benchmark.py --device gpu:0", language="bash")
     st.stop()
@@ -306,9 +342,14 @@ if len(failed):
 
 
 # ── 헤더 ──────────────────────────────────────────────────────
-st.title("OCR 엔진 비교")
+st.markdown('<h1 class="main-title">OCR 엔진 비교</h1>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">PaddleOCR-VL, EasyOCR, Tesseract</p>', unsafe_allow_html=True)
 
 overall = rollup(scored, ["엔진"], mode).set_index("엔진").reindex(order)
+wer_scored = scored[~scored["group"].isin(NO_SPACE_LANGS)]
+_by_lang = rollup(wer_scored, ["엔진", "group"], "macro")
+overall_wer = (_by_lang.groupby("엔진")[["CER", "WER"]].mean().reindex(order))
+
 best = overall["CER"].idxmin()
 has_timing = scored["seconds"].fillna(0).sum() > 0
 
@@ -316,8 +357,8 @@ c1, c2, c3 = st.columns(3)
 c1.metric("1위 엔진", best, help="선택한 언어 전체에서 CER 이 가장 낮은 엔진")
 c2.metric("CER", f"{overall.loc[best, 'CER']:.3f}",
           help="글자 단위 오류율. (치환+삭제+삽입) / 정답 글자 수. 낮을수록 좋다")
-c3.metric("WER", f"{overall.loc[best, 'WER']:.3f}",
-          help="공백으로 자른 단어 단위 오류율. 낮을수록 좋다")
+c3.metric("WER", f"{overall_wer.loc[best, 'WER']:.3f}",help="공백으로 자른 단어 단위 오류율. 낮을수록 좋다")
+
 
 
 tab_overview, tab_lang, tab_data, tab_text = st.tabs(
@@ -335,13 +376,14 @@ with tab_overview:
     )
     bars = (
         alt.Chart(melted)
-        .mark_bar(cornerRadiusEnd=4, size=32)   # 데이터 끝만 둥글게
+        .mark_bar(cornerRadiusEnd=4, size=25)   # 데이터 끝만 둥글게
         .encode(
             y=alt.Y("엔진:N", sort=order, title=None),
             x=alt.X("값:Q", title=None, axis=alt.Axis(format=".2f"),
                     scale=alt.Scale(nice=False, padding=6)),
-            # 색은 y축과 같은 정보라 범례가 없어도 된다 (행 이름이 곧 엔진이다)
-            color=alt.Color("엔진:N", legend=None, scale=series_scale),
+            # 색이 y축과 같은 정보라 계열색을 쓸 이유가 없다. 페이지 강조색 한 가지로
+            # 칠하고 엔진 구분은 행 이름에 맡긴다.
+            color=alt.value("#4A90E2"),
             tooltip=[alt.Tooltip("엔진:N"), alt.Tooltip("지표:N"),
                      alt.Tooltip("값:Q", format=".3f")],
         )
@@ -353,7 +395,7 @@ with tab_overview:
     st.altair_chart(
         themed(
             (bars + labels)
-            .properties(height=64 * len(order) + 40, width=350)
+            .properties(height=50 * len(order) + 40, width=350)
             .facet(column=alt.Column("지표:N", title=None,
                                      header=alt.Header(labelColor=p["muted"],
                                                        labelFontSize=13)))
